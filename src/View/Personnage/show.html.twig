@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block content %}
+  {% for personnage in personnages %}
+
+      {% for person in personnage %}
+          <div>
+              <ul>
+                  <li>{{ person.id }}</li>
+                  <li>{{ person.name }}</li>
+                  <li>{{ person.level }}</li>
+                  <li>{{ person.attack }}</li>
+                  <li>{{ person.defense }}</li>
+                  <li>{{ person.special }}</li>
+                  <li>{{ personnage.description }}</li>
+                  <li><img src="{{ person.picture }}" alt=""></li>
+                  <li>{{ person.createdAt }}</li>
+                  <li>{{ person.updatedAt }}</li>
+              </ul>
+          </div>
+      {% endfor %}
+    {% endfor %}
+{% endblock %}
