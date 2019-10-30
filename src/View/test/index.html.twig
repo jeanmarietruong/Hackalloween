@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+{{ dump(test) }}
+    {% for toto in test %}
+        {% endfor %}
+    <div class="form_group" method="GET">
+        <input class="form-control" type=text" id="serch-user" value=""  placeholder="recherche"/>
+        <input type="submit" name="search" value="cherchez votre film">
+    </div>
+{% endblock %}

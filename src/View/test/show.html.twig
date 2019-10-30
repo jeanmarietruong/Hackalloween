@@ -1,0 +1,7 @@
+{% extends 'layout.html.twig' %}
+{{ dump(resultat) }}
+{% block content %}
+    <h1>Item {{ resultat.title }}</h1>
+    <p>{{ resultat.id }}. {{ resultat.title }}</p>
+    <a href="/Test/index">Back</a>
+{% endblock %}
