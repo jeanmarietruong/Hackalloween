@@ -1,9 +1,8 @@
 {% extends 'layout.html.twig' %}
 
-
 {% block content %}
 
-    {% for personnage in personnages %}
+    <h3>Votre personnage</h3>
 
         {% for person in personnage %}
 
@@ -58,15 +57,24 @@
 
                         <!-- choisir -->
 
-                        <form action="boss/{{ person.id }}/">
-                            <input class="btn btn-primary monster-button" type="submit" value="Choisir">
-                        </form>
+                        <a href="/Personnage/show">Changer de personnage</a>
+
                     </div>
                 </div>
             </div>
 
         {% endfor %}
 
-    {% endfor %}
+    <h3>Choisissez votre adversaire</h3>
+
+    <div class="hulk">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/61KHDn2QGeL._SY741_.jpg" alt="">
+        <form method="get" action="/Combat/index/">
+            <input type="submit" value="Attaquer se boss">
+        </form>
+    </div>
+
+
+
 
 {% endblock %}
