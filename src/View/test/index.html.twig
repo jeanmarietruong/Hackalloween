@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container no-gutters">
+    {% for toto in test %}
+        {% for toto1 in toto %}
+            <div class="row">
+                <div class="col">
+                <img src="{{ toto1.posterUrl }}" class="card-img-top" alt="...">
+                    <h5 class="card-title">Titre: {{ toto1.title }}</h5>
+                        <div class="col-1">Année de sortie: {{ toto1.year }} </div>
+            </div>
+            </div>
+    <br/>
+    {% endfor %}
+    {% endfor %}
+
+{% endblock %}
