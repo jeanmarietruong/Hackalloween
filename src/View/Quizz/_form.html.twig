@@ -1,0 +1,38 @@
+<form method="post">
+
+    <label for="film">Choisis un film :</label>
+    <select name="nom" id="film">
+        {% for title in quizzs %}
+            {% for quiz in title %}
+                <option value="{{ quiz.title }}">{{ quiz.title }}</option>
+            {% endfor %}
+        {% endfor %}
+
+    </select>
+    <br>
+    <label for="question">Votre question :</label>
+    <input type="text" name="question" id="question">
+    <br>
+    <label for="reponse_a">reponse A :</label>
+    <input type="text" name="reponse_a" id="reponse_a">
+    <br>
+    <label for="reponse_b">reponse B :</label>
+    <input type="text" name="reponse_b" id="reponse_b">
+    <br>
+    <label for="reponse_c">reponse C :</label>
+    <input type="text" name="reponse_c" id="reponse_c">
+    <br>
+    <label for="reponse_d">reponse D :</label>
+    <input type="text" name="reponse_d" id="reponse_d">
+    <br>
+
+    <label for="reponse_juste">La bonne reponse est :</label>
+    <select name="reponse_juste" id="film">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+    </select>
+    <br>
+    <input type="submit" value="Valider">
+</form>

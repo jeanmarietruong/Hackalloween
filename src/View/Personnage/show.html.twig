@@ -1,0 +1,72 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block content %}
+
+    {% for personnage in personnages %}
+
+        {% for person in personnage %}
+
+            <div class="container monster-container">
+
+                <!-- image -->
+
+                <div class="row">
+                    <div class="col-xl-12 monster-img">
+                        <img src="{{ person.picture }}" alt="">
+                    </div>
+                </div>
+
+                <!-- tableau -->
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Stats</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>#</td>
+                                <td>{{ person.id }}</td>
+                            </tr>
+                            <tr>
+                                <td>Nom</td>
+                                <td>{{ person.name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Level</td>
+                                <td>{{ person.level }}</td>
+                            </tr>
+                            <tr>
+                                <td>Attaque</td>
+                                <td>{{ person.attack }}</td>
+                            </tr>
+                            <tr>
+                                <td>Defense</td>
+                                <td>{{ person.defense }}</td>
+                            </tr>
+                            <tr>
+                                <td>Spécial</td>
+                                <td>{{ person.special }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- choisir -->
+
+                        <form action="boss/{{ person.id }}/">
+                            <input class="btn btn-primary monster-button" type="submit" value="Choisir">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    {% endfor %}
+
+{% endblock %}

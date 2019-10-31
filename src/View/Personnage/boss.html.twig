@@ -1,0 +1,80 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <h3>Votre personnage</h3>
+
+        {% for person in personnage %}
+
+            <div class="container monster-container">
+
+                <!-- image -->
+
+                <div class="row">
+                    <div class="col-xl-12 monster-img">
+                        <img src="{{ person.picture }}" alt="">
+                    </div>
+                </div>
+
+                <!-- tableau -->
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Stats</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>#</td>
+                                <td>{{ person.id }}</td>
+                            </tr>
+                            <tr>
+                                <td>Nom</td>
+                                <td>{{ person.name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Level</td>
+                                <td>{{ person.level }}</td>
+                            </tr>
+                            <tr>
+                                <td>Attaque</td>
+                                <td>{{ person.attack }}</td>
+                            </tr>
+                            <tr>
+                                <td>Defense</td>
+                                <td>{{ person.defense }}</td>
+                            </tr>
+                            <tr>
+                                <td>Spécial</td>
+                                <td>{{ person.special }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- choisir -->
+
+                        <a href="/Personnage/show">Changer de personnage</a>
+
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    <h3>Choisissez votre adversaire</h3>
+
+    <div class="hulk">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/61KHDn2QGeL._SY741_.jpg" alt="">
+        <form method="get" action="/Combat/index/">
+            <input type="submit" value="Attaquer se boss">
+        </form>
+    </div>
+
+
+
+
+{% endblock %}
