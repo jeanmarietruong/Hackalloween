@@ -16,8 +16,8 @@ class TestManager extends AbstractManager
 
     public function test()
     {
-        $client   = HttpClient::create();
-        $response = $client->request('GET', 'https://hackathon-wild-hackoween.herokuapp.com/movies/search/title/:title');
+        $client     = HttpClient::create();
+        $response   = $client->request('GET', 'https://hackathon-wild-hackoween.herokuapp.com/movies');
         $statusCode = $response->getStatusCode();
 
         if ($statusCode === 200) {
@@ -28,14 +28,20 @@ class TestManager extends AbstractManager
             return $content;
         }
     }
-    public function selectOneById(int $id)
-    {
-        // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
-        $statement->execute();
 
-        return $statement->fetch();
+    public function test1(array $test1)
+    {
+        $client1     = HttpClient::create();
+        $response   = $client1->request('GET', 'https://hackathon-wild-hackoween.herokuapp.com/movies/search/title/'.$test1);
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode === 200) {
+            $content = $response->getContent();
+
+            $content = $response->toArray();
+            var_dump($content);
+            return $content;
+        }
     }
 
 }

@@ -12,16 +12,23 @@ class TestController extends AbstractController
     public function index()
     {
             $testManager = new TestManager();
-            $test = $testManager->test();
+            $test        = $testManager->test();
 
             return $this->twig->render('test/index.html.twig', ['test' => $test]);
     }
 
-    public function show(int $id)
+    public function test()
     {
-            $testManager = new TestManager();
-            $resutat = $testManager->selectOneById($id);
 
-            return $this->twig->render('Item/show.html.twig', ['resultat' => $resutat]);
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $testManager = new TestManager();
+            $test1 = [
+                'search' => $_GET['search'],
+            ];
+            $id = $testManager->test1($test1);
+            header('Location:/test/test/'. $id);
+        }
+
+        return $this->twig->render('test/test.html.twig', ['search' => $test1]);
     }
 }

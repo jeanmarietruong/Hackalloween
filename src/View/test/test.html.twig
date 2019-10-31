@@ -1,6 +1,15 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+
+    <div class="form_group">
+        <form method="get">
+        <input class="form-control" type=text" id="serch-user" name="search" placeholder="recherche"/>
+        <input type="submit" value="cherchez votre film">
+        </form>
+    </div>
+    <hr>
+
     <div class="container no-gutters">
     {% for toto in test %}
         {% for toto1 in toto %}
